@@ -3,7 +3,7 @@ import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 plugins {
     alias(libs.plugins.multiplatform)
     alias(libs.plugins.compose)
-    alias(libs.plugins.android.application)
+    alias(libs.plugins.android.library)
 }
 
 kotlin {
@@ -78,11 +78,6 @@ android {
 
     defaultConfig {
         minSdk = 24
-        targetSdk = 34
-
-        applicationId = "org.notifier.app.androidApp"
-        versionCode = 1
-        versionName = "1.0.0"
     }
     sourceSets["main"].apply {
         manifest.srcFile("src/androidMain/AndroidManifest.xml")

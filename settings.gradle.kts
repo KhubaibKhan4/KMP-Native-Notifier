@@ -1,5 +1,6 @@
 rootProject.name = "KMP-Native-Notifier-"
-include(":composeApp")
+include(":sample:composeApp")
+include(":notifier")
 
 pluginManagement {
     repositories {
