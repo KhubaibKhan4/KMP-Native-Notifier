@@ -55,6 +55,8 @@ kotlin {
             implementation(libs.androidx.appcompat)
             implementation(libs.androidx.activityCompose)
             implementation(libs.compose.uitooling)
+            implementation(compose.runtime)
+            implementation(compose.material3)
         }
 
         jvmMain.dependencies {
