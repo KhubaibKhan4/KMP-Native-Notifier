@@ -1,23 +1,22 @@
 import androidx.compose.runtime.Composable
 import java.awt.SystemTray
+import java.awt.Toolkit
 import java.awt.TrayIcon
 import javax.swing.JOptionPane
 
 @Composable
-internal actual fun getNotification() {
+internal actual fun getNotification(message: String) {
     if (SystemTray.isSupported()) {
         val tray = SystemTray.getSystemTray()
-        val trayIcon = TrayIcon(null, "Demo Notification")
+        val image = Toolkit.getDefaultToolkit().createImage("logo.png")
+        val trayIcon = TrayIcon(image, "Desktop Notification")
         tray.add(trayIcon)
-        trayIcon.displayMessage(
-            "Demo Notification Caption",
-            "Demo Title",
-            TrayIcon.MessageType.INFO
-        )
+        trayIcon.displayMessage("Desktop Notification", message, TrayIcon.MessageType.INFO)
     } else {
+        // Fallback for systems that don't support SystemTray
         JOptionPane.showMessageDialog(
             null,
-            "This is the Message",
+            message,
             "Desktop Notification",
             JOptionPane.INFORMATION_MESSAGE
         )

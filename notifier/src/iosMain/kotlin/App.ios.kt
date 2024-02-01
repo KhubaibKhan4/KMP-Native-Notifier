@@ -1,7 +1,7 @@
 import androidx.compose.runtime.Composable
 
 @Composable
-internal actual fun getNotification() {
+internal actual fun getNotification(message: String) {
     val alertController = UIAlertController.alertControllerWithTitle(
         title = UIDevice.currentDevice.systemName,
         message = message,

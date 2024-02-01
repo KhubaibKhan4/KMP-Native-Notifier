@@ -1,4 +1,11 @@
 import androidx.compose.runtime.Composable
 
 @Composable
-internal expect fun getNotification()
+fun ShowNotification(
+    message: String
+) {
+    getNotification(message = message)
+}
+
+@Composable
+internal expect fun getNotification(message: String)

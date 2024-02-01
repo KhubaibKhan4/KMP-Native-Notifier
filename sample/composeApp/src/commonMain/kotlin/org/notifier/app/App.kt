@@ -1,5 +1,7 @@
 package org.notifier.app
 
+import ShowNotification
+import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -41,6 +43,7 @@ import org.notifier.app.theme.LocalThemeIsDark
 internal fun App() = AppTheme {
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
+    var showNotification by remember { mutableStateOf(false) }
     var passwordVisibility by remember { mutableStateOf(false) }
 
     Column(modifier = Modifier.fillMaxSize().windowInsetsPadding(WindowInsets.safeDrawing)) {
@@ -88,17 +91,26 @@ internal fun App() = AppTheme {
             ),
             trailingIcon = {
                 IconButton(onClick = { passwordVisibility = !passwordVisibility }) {
-                    val imageVector = if (passwordVisibility) Icons.Default.Close else Icons.Default.Edit
-                    Icon(imageVector, contentDescription = if (passwordVisibility) "Hide password" else "Show password")
+                    val imageVector =
+                        if (passwordVisibility) Icons.Default.Close else Icons.Default.Edit
+                    Icon(
+                        imageVector,
+                        contentDescription = if (passwordVisibility) "Hide password" else "Show password"
+                    )
                 }
             }
         )
 
         Button(
-            onClick = { /* Handle login logic here */ },
+            onClick = {
+                showNotification = !showNotification
+            },
             modifier = Modifier.fillMaxWidth().padding(16.dp)
         ) {
             Text("Login")
+        }
+        AnimatedVisibility(showNotification) {
+            ShowNotification("Welcome to Native Notifier...")
         }
 
         TextButton(
