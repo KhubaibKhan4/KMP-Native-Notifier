@@ -1,4 +1,5 @@
 import androidx.compose.runtime.Composable
+import UIKit
 
 @Composable
 internal actual fun getNotification(message: String) {
