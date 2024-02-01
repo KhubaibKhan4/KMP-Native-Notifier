@@ -1,5 +1,11 @@
 import androidx.compose.runtime.Composable
-import UIKit
+import platform.UIKit.UIDevice
+import platform.UIKit.UIViewController
+import platform.UIKit.UIAlertController
+import platform.UIKit.UIAlertAction
+import platform.UIKit.UIAlertControllerStyle
+import platform.UIKit.UIAlertActionStyle
+
 
 @Composable
 internal actual fun getNotification(message: String) {
