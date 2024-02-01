@@ -1,15 +1,15 @@
 import androidx.compose.runtime.Composable
-import platform.UIKit.UIDevice
+/*import platform.UIKit.UIDevice
 import platform.UIKit.UIViewController
 import platform.UIKit.UIAlertController
 import platform.UIKit.UIAlertAction
 import platform.UIKit.UIAlertControllerStyle
-import platform.UIKit.UIAlertActionStyle
+import platform.UIKit.UIAlertActionStyle*/
 
 
 @Composable
 internal actual fun getNotification(message: String) {
-    val alertController = UIAlertController.alertControllerWithTitle(
+   /* val alertController = UIAlertController.alertControllerWithTitle(
         title = UIDevice.currentDevice.systemName,
         message = message,
         preferredStyle = UIAlertControllerStyleUIAlertControllerStyleAlert
@@ -21,5 +21,5 @@ internal actual fun getNotification(message: String) {
             handler = null
         )
     )
-    viewController.presentViewController(alertController, animated = true, completion = null)
+    viewController.presentViewController(alertController, animated = true, completion = null)*/
 }
