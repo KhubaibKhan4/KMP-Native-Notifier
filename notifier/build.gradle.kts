@@ -71,22 +71,24 @@ kotlin {
         }
 
     }
-    publishing{
-        publications {
-            create<MavenPublication>("maven"){
-                groupId = "com.native"
-                artifactId = "notifier"
-                version = "0.0.1"
-                artifact("$buildDir/outputs/aar/notifier-release.aar")
+    afterEvaluate {
+        publishing{
+            publications {
+                create<MavenPublication>("release"){
+                    groupId = "com.github.khubaibkhan4"
+                    artifactId = "native-notifier"
+                    version = "0.0.2"
+                    artifact("$buildDir/outputs/aar/notifier-release.aar")
+                }
             }
-        }
-        repositories {
-            maven {
-                name = "GithubPackages"
-                url = uri("https://maven.pkg.github.com/KhubaibKhan4/KMP-Native-Notifier")
-                credentials {
-                    username =System.getenv("GITHUB_USERNAME")
-                    password =System.getenv("GITHUB_TOKEN")
+            repositories {
+                maven {
+                    name = "GithubPackages"
+                    url = uri("https://maven.pkg.github.com/KhubaibKhan4/KMP-Native-Notifier")
+                    credentials {
+                        username =System.getenv("GITHUB_USERNAME")
+                        password =System.getenv("GITHUB_TOKEN")
+                    }
                 }
             }
         }

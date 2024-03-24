@@ -5,7 +5,7 @@ import java.awt.TrayIcon
 import javax.swing.JOptionPane
 
 @Composable
-internal actual fun getNotification(message: String) {
+actual fun getNotification(message: String) {
     if (SystemTray.isSupported()) {
         val tray = SystemTray.getSystemTray()
         val image = Toolkit.getDefaultToolkit().createImage("logo.png")
