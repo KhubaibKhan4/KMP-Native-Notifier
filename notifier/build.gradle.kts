@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.multiplatform)
     alias(libs.plugins.compose)
     alias(libs.plugins.android.library)
+    id("maven-publish")
 }
 
 kotlin {
@@ -69,6 +70,26 @@ kotlin {
         iosMain.dependencies {
         }
 
+    }
+    publishing{
+        publications {
+            create<MavenPublication>("maven"){
+                groupId = "com.native"
+                artifactId = "notifier"
+                version = "0.1-alpha"
+                artifact("$buildDir/outputs/aar/notifier-release.aar")
+            }
+        }
+        repositories {
+            maven {
+                name = "GithubPackages"
+                url = uri("https://maven.pkg.github.com/KhubaibKhan4/KMP-Native-Notifier")
+                credentials {
+                    username = System.getenv("GITHUB_USERNAME")
+                    password = System.getenv("GITHUB_TOKEN")
+                }
+            }
+        }
     }
 }
 

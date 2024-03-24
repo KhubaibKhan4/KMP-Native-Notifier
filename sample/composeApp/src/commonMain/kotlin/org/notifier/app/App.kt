@@ -1,6 +1,5 @@
 package org.notifier.app
 
-import ShowNotification
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -110,7 +109,7 @@ internal fun App() = AppTheme {
             Text("Login")
         }
         AnimatedVisibility(showNotification) {
-            ShowNotification("Welcome to Native Notifier...")
+
         }
 
         TextButton(
