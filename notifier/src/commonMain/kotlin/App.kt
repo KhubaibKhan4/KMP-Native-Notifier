@@ -8,4 +8,4 @@ fun ShowNotification(
 }
 
 @Composable
-internal expect fun getNotification(message: String)
+expect fun getNotification(message: String)

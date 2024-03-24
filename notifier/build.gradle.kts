@@ -76,7 +76,7 @@ kotlin {
             create<MavenPublication>("maven"){
                 groupId = "com.native"
                 artifactId = "notifier"
-                version = "0.1-alpha"
+                version = "0.0.1"
                 artifact("$buildDir/outputs/aar/notifier-release.aar")
             }
         }
@@ -85,8 +85,8 @@ kotlin {
                 name = "GithubPackages"
                 url = uri("https://maven.pkg.github.com/KhubaibKhan4/KMP-Native-Notifier")
                 credentials {
-                    username = System.getenv("GITHUB_USERNAME")
-                    password = System.getenv("GITHUB_TOKEN")
+                    username =System.getenv("GITHUB_USERNAME")
+                    password =System.getenv("GITHUB_TOKEN")
                 }
             }
         }
